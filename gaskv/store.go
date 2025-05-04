@@ -54,7 +54,7 @@ func (gs *Store) Set(key, value []byte) {
 	gs.gasMeter.ConsumeGas(gs.gasConfig.WriteCostPerByte*types.Gas(len(key)), types.GasWritePerByteDesc)
 	gs.gasMeter.ConsumeGas(gs.gasConfig.WriteCostPerByte*types.Gas(len(value)), types.GasWritePerByteDesc)
 	
-	// Extra cost for preventing from spam
+	// Add extra cost for preventing from spam
 	keyLen := len(key)
 	valLen := len(value)
 	totalLen := keyLen + valLen
